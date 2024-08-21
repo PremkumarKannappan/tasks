@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/out" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/InterfaceExample" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/InterfaceExample1" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/MethodOverriding" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/MultiThreadingExample" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Task10" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Task11" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Task15" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Task16" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Task17_18" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Task19" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Task20" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Task21" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Task22" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Task23" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Task24" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Task25" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Task26" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Task27" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Task7" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Task8" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Task9" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/src/InterfaceExample" />
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
