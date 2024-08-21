@@ -1,6 +1,5 @@
 package com.example.SimpleMail.controller;
 
-import com.example.SimpleMail.service.MultipleSendService;
 import com.example.SimpleMail.service.MultipleWithCCService;
 import jakarta.mail.MessagingException;
 import org.springframework.beans.factory.annotation.Autowired;

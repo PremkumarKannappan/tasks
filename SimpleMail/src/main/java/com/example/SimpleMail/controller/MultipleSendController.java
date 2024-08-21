@@ -5,6 +5,8 @@ import jakarta.mail.MessagingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.io.File;
 
 @Controller
+@EnableScheduling
 @RequestMapping("/multiple")
 public class MultipleSendController
 {
@@ -21,10 +24,8 @@ public class MultipleSendController
     @PostMapping("/send")
     public ResponseEntity<?> sendMultipleMail()
     {
-        String [] toUser = {"premkumar24kannappan@gmail.com","rajeshgpro143@gmail.com"};
-        String body = "Body of the mail sent from api";
-        String subject = "this is the subject";
-        return new ResponseEntity<>(sendService.sendMultipleMail(toUser,subject,body), HttpStatus.OK);
+
+        return new ResponseEntity<>(sendService.sendMultipleMail(), HttpStatus.OK);
     }
 
     @PostMapping("/sendAttached")
