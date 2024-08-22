@@ -1,10 +1,14 @@
 package com.example.demo.service;
 
+import com.example.demo.entity.OneToOne.Address;
 import com.example.demo.entity.OneToOne.Person;
 import com.example.demo.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.ByteArrayInputStream;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -46,5 +50,28 @@ public class PersonService
         personRepository.deleteById(id);
         return "Student details of the id "+id+" is deleted successfully";
     }
+
+    public ByteArrayInputStream exportToCSV() {
+        List<Person> persons = personRepository.findAll();
+        SimpleDateFormat date = new SimpleDateFormat("ddMMyyyy_hhmmss");
+        String timeStamp = date.format(new Date());
+        String[] columns = {"ID", "PERSON_NAME"};
+
+        // Using StringBuilder to build CSV content
+        StringBuilder csvContent = new StringBuilder();
+
+        // Adding header row
+        csvContent.append(String.join(",", columns)).append("\n");
+
+        // Adding data rows
+        for (Person per : persons) {
+            csvContent.append(per.getPersonId()).append(",")
+                    .append(per.getPersonName()).append("\n");
+        }
+
+        // Converting StringBuilder to ByteArrayInputStream
+        return new ByteArrayInputStream(csvContent.toString().getBytes());
+    }
+
 
 }
