@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "PREM_RECORD")
+@Table(name = "PREM_CSV_READER")
 @Getter
 @Setter
 @AllArgsConstructor
