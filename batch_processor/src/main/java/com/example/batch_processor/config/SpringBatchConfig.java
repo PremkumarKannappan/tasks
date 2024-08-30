@@ -38,9 +38,9 @@ public class SpringBatchConfig {
     private StepBuilder stepBuilder;
     private RecordRepository recordRepository;
     private PlatformTransactionManager transactionManager;
+
     @Bean
-    public FlatFileItemReader<Record> reader()
-    {
+    public FlatFileItemReader<Record> reader() {
         FlatFileItemReader<Record> itemReader = new FlatFileItemReader<>();
         itemReader.setResource(new FileSystemResource("src/main/resources/data.csv"));
         itemReader.setName("csvReader");
@@ -53,7 +53,7 @@ public class SpringBatchConfig {
         DelimitedLineTokenizer lineTokenizer = new DelimitedLineTokenizer();
         lineTokenizer.setDelimiter(",");
         lineTokenizer.setStrict(false);
-        lineTokenizer.setNames("tableName","columnName","dataType");
+        lineTokenizer.setNames("tableName", "columnName", "dataType");
         BeanWrapperFieldSetMapper<Record> fieldSetMapper = new BeanWrapperFieldSetMapper<>();
         fieldSetMapper.setTargetType(Record.class);
 
@@ -64,14 +64,12 @@ public class SpringBatchConfig {
     }
 
     @Bean
-    public ItemProcessor<Record,Record> processor()
-    {
+    public ItemProcessor<Record, Record> processor() {
         return new RecordProcessor();
     }
 
     @Bean
-    public JpaItemWriter<Record> writer(EntityManagerFactory entityManagerFactory1)
-    {
+    public JpaItemWriter<Record> writer(EntityManagerFactory entityManagerFactory1) {
         JpaItemWriter<Record> writer = new JpaItemWriter<>();
         writer.setEntityManagerFactory(entityManagerFactory1);
         writer.setUsePersist(true);
@@ -79,9 +77,9 @@ public class SpringBatchConfig {
     }
 
     @Bean
-    public Step step(JobRepository jobRepository,PlatformTransactionManager transactionManager1){
-         return new StepBuilder("step1", jobRepository)
-                .<Record, Record>chunk(10,transactionManager1 )
+    public Step step(JobRepository jobRepository, PlatformTransactionManager transactionManager1) {
+        return new StepBuilder("step1", jobRepository)
+                .<Record, Record>chunk(10, transactionManager1)
                 .reader(reader())
                 .processor(processor())
                 .writer(writer(entityManagerFactory))
@@ -93,7 +91,7 @@ public class SpringBatchConfig {
         return new JobBuilder("importUserJob", jobRepository)
 //                .incrementer(new RunIdIncrementer())
                 .listener(listener)
-                .start(step(jobRepository,transactionManager))
+                .start(step(jobRepository, transactionManager))
                 .build();
     }
 }
