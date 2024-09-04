@@ -1,6 +1,7 @@
 package com.premkumar.order_service.controller;
 
 import com.premkumar.order_service.entity.Order;
+import com.premkumar.order_service.entity.OrderDto;
 import com.premkumar.order_service.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,8 +19,8 @@ public class OrderController {
     OrderService orderService;
 
     @PostMapping("/place-order")
-    public ResponseEntity<?> placeOrder(@RequestBody Order order)
+    public ResponseEntity<?> placeOrder(@RequestBody OrderDto orderDto)
     {
-        return new ResponseEntity<>(orderService.placeOrder(order), HttpStatus.OK);
+        return new ResponseEntity<>(orderService.placeOrder(orderDto), HttpStatus.OK);
     }
 }

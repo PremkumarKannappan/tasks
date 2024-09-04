@@ -19,7 +19,7 @@ public class Items {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long itemId;
     private String itemName;
-    private String itemPrice;
+    private Long itemPrice;
     private String itemUnit;
 
     @ManyToOne
